@@ -1,0 +1,61 @@
+[Defines] 
+  INF_VERSION                    = 0x00010006 
+  BASE_NAME                      = rdcdriver
+  FILE_GUID                      = 353ae834-70ae-478b-8b06-c1a913f8df4b
+  MODULE_TYPE                    = DXE_DRIVER 
+  VERSION_STRING                 = 1.0 
+  ENTRY_POINT                    = RDCDxeInit 
+ 
+# 
+# The following information is for reference only and not required by the build tools. 
+# 
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC 
+# 
+ 
+[BuildOptions]
+# add stack length from define(32768) to 131072
+MSFT:*_*_*_CC_FLAGS = /D_UEFI_
+
+
+[Sources.common] 
+  rdcdriver.c
+  rdcprotocoldrv.c
+  rdccandrv.c
+  rdci2cdrv.c
+  rdcsmbusdrv.c
+  rdcsi2cdrv.c
+  rdcgpiodrv.c
+  aec.c
+  rdcec.c
+  a9610/can.h
+  a9610/i2c.h
+  a9610/smb.h
+  
+[Packages] 
+  MdePkg/MdePkg.dec 
+  StdLib/StdLib.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  IoLib
+  DebugLib
+#  TimerLib
+
+[Guids] 
+ 
+[Ppis] 
+ 
+[Protocols]
+
+gEfiSimpleTextInputExProtocolGuid
+gEfiDevicePathProtocolGuid
+gEfiI2cMasterProtocolGuid
+gEfiSmbusHcProtocolGuid
+
+[FeaturePcd] 
+ 
+[Pcd] 
+
+[Depex]
+  TRUE

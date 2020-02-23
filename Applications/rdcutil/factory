@@ -1,0 +1,15 @@
+;BCT->Boot Counter
+;RTM->Running Time meter
+;BMN->Board Manufacture Name
+;SN->Serial Number
+;PT->Platform Type
+;ESV->EAPI Specification Version
+;BVP->Board Vendor PNPID
+;BPSR->Board Platform Specification Revision
+
+BMN=ADVANTECH
+SN=EPA0000001
+PT=COMExpress
+ESV=1,0
+BVP=ADV,0x123
+BPSR=2,0

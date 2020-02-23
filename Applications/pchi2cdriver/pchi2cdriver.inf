@@ -1,0 +1,50 @@
+[Defines] 
+  INF_VERSION                    = 0x00010006 
+  BASE_NAME                      = pchi2cdriver
+  FILE_GUID                      = 353ae834-70ae-478b-8b06-c1a913f8df4b
+  MODULE_TYPE                    = DXE_DRIVER 
+  VERSION_STRING                 = 1.0 
+  ENTRY_POINT                    = PCHI2cMasterDxeInit 
+ 
+# 
+# The following information is for reference only and not required by the build tools. 
+# 
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC 
+# 
+ 
+[BuildOptions]
+# add stack length from define(32768) to 131072
+MSFT:*_*_*_CC_FLAGS = /D_UEFI_
+
+
+[Sources.common] 
+  pchi2cdriver.c
+  x86hw.c
+  lib.c
+  
+[Packages] 
+  MdePkg/MdePkg.dec 
+  StdLib/StdLib.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+
+[LibraryClasses]
+  UefiDriverEntryPoint
+  IoLib
+  DebugLib
+#  TimerLib
+
+[Guids] 
+ 
+[Ppis] 
+ 
+[Protocols] 
+gEfiI2cMasterProtocolGuid
+gEfiDevicePathProtocolGuid
+gEfiSimpleTextInputExProtocolGuid
+
+[FeaturePcd] 
+ 
+[Pcd] 
+
+[Depex]
+  TRUE

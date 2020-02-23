@@ -1,0 +1,120 @@
+[Defines] 
+  INF_VERSION                    = 0x00010006 
+  BASE_NAME                      = powerup
+  FILE_GUID                      = AB0F9969-0A54-4697-ACE7-42FE6BB84A1E 
+  MODULE_TYPE                    = UEFI_APPLICATION 
+  VERSION_STRING                 = 1.0 
+  ENTRY_POINT                    = ShellCEntryLib 
+ 
+# 
+# The following information is for reference only and not required by the build tools. 
+# 
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC 
+# 
+ 
+[BuildOptions]
+# add stack length from define(32768) to 131072
+MSFT:*_*_*_CC_FLAGS = /D_UEFI_
+
+
+[Sources.common] 
+  src/about.c
+  src/chkrec.c
+  src/cpmenu.c
+  src/dat.c
+  src/datlst.c
+  src/errcode.c
+  src/flmenu.c
+  src/grep.c
+  src/help.c
+  src/main.c
+  src/mainmenu.c
+  src/pu.c
+  src/rt.c
+  src/scr.c
+  src/statis.c
+  src/sysmenu.c
+  src/trep.c
+  src/upd.c
+  src/base/global.c
+  src/init/parinit.c
+  src/init/sysinit.c
+  lib/acl/abios.c
+  lib/acl/acpi_ec.c
+  lib/acl/aec.c
+  lib/acl/ite_ec.c
+  lib/acl/rdc_ec.c
+  lib/common/conv.c
+  lib/common/crc.c
+  lib/common/fbuf.c
+  lib/common/file.c
+  lib/common/log.c
+  lib/common/mode3.c
+  lib/common/strlst.c
+  lib/graph/g_fbmp.c
+  lib/text/t_bignum.c
+  lib/text/t_chkbox.c
+  lib/text/t_hextab.c
+  lib/text/t_hlbox.c
+  lib/text/t_indat.c
+  lib/text/t_keyhlp.c
+  lib/text/t_msgbox.c
+  lib/text/t_scrcap.c
+  lib/text/t_svlbox.c
+  lib/text/t_title.c
+  lib/text/t_video.c
+  lib/text/t_vlbox.c
+  lib/video/video.c
+  lib/x86/bda.c
+  lib/x86/cpuid.c
+  lib/x86/csm.c
+  lib/x86/dpmi.c
+  lib/x86/e820.c
+  lib/x86/imc.c
+  lib/x86/key.c
+  lib/x86/pci.c
+  lib/x86/pciname.c
+  lib/x86/reset.c
+  lib/x86/rtc.c
+  lib/x86/smb.c
+  lib/x86/smbios.c
+  lib/x86/sound.c
+  lib/x86/spd.c
+
+[Packages] 
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec 
+  MdeModulePkg/MdeModulePkg.dec 
+  ShellPkg/ShellPkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+
+[LibraryClasses]
+  LibC
+  LibStdio
+  LibMath
+  LibTime
+  LibString
+  IoLib
+  UefiLib
+  DevShell
+  ShellLib
+  ShellCEntryLib
+  UefiBootServicesTableLib
+
+[Guids] 
+ gEfiSmbiosTableGuid
+ gEfiSmbios3TableGuid
+ gEfiFileSystemInfoGuid
+ 
+[Ppis] 
+ 
+[Protocols] 
+ gEfiSimpleTextInputExProtocolGuid
+ gEfiShellProtocolGuid
+ gEfiPciIoProtocolGuid
+ gEfiPciRootBridgeIoProtocolGuid
+ gEfiDevicePathFromTextProtocolGuid
+
+[FeaturePcd] 
+ 
+[Pcd] 

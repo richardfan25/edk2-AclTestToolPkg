@@ -1,0 +1,23 @@
+#ifndef _GPIO_H__
+#define _GPIO_H__
+
+
+
+#define GPIO_WRITE (1 << 1)
+#define GPIO_READ (1 << 2)
+
+#define RDC_GPIO_DATA_OFFSET 0x00
+#define RDC_GPIO_DIRECTION_OFFSET 0x04
+#define RDC_GPIO_INTERRUPT_STATUS_OFFSET 0x08
+#define RDC_GPIO_INTERRUPT_CONTROL_OFFSET 0x0C
+
+
+
+EFI_STATUS RDCGPIOInit(UINT16 *bio);
+EFI_STATUS GPIODataRW(UINT16 bio, UINT8 port, UINT8 *data, UINT8 rw);
+EFI_STATUS GPIODirectionRW(UINT16 bio, UINT8 port, UINT8 *direction, UINT8 rw);
+
+
+
+#endif
+

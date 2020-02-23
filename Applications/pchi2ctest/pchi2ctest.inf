@@ -1,0 +1,53 @@
+[Defines] 
+  INF_VERSION                    = 0x00010006 
+  BASE_NAME                      = pchi2ctest
+  FILE_GUID                      = 0A8830B50-5822-4f13-99D8-D0DCAED583C3 
+  MODULE_TYPE                    = UEFI_APPLICATION 
+  VERSION_STRING                 = 1.0 
+  ENTRY_POINT                    = ShellCEntryLib 
+ 
+# 
+# The following information is for reference only and not required by the build tools. 
+# 
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC 
+# 
+ 
+[BuildOptions]
+# add stack length from define(32768) to 131072
+MSFT:*_*_*_CC_FLAGS = /D_UEFI_
+
+
+[Sources.common] 
+  pchi2ctest.c
+  base/util.c
+  base/util.h
+  base/global.c
+  base/global.h
+  base/x86hw.c
+  base/x86hw.h
+  
+[Packages] 
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec 
+  ShellPkg/ShellPkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+
+[LibraryClasses]
+  LibC
+  LibStdio
+  LibMath
+  LibTime
+  LibString
+  IoLib
+
+[Guids] 
+ 
+[Ppis] 
+ 
+[Protocols] 
+gEfiSimpleTextInputExProtocolGuid
+gEfiPciRootBridgeIoProtocolGuid
+
+[FeaturePcd] 
+ 
+[Pcd] 
